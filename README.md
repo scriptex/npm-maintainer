@@ -1,23 +1,12 @@
-[![GitHub release](https://img.shields.io/github/release/scriptex/webpack-mpa.svg)](https://github.com/scriptex/webpack-mpa/releases/latest)
-[![GitHub issues](https://img.shields.io/github/issues/scriptex/webpack-mpa.svg)](https://github.com/scriptex/webpack-mpa/issues)
-[![GitHub last commit](https://img.shields.io/github/last-commit/scriptex/webpack-mpa.svg)](https://github.com/scriptex/webpack-mpa/commits/master)
-[![Build Status](https://travis-ci.org/scriptex/webpack-mpa.svg?branch=master)](https://travis-ci.org/scriptex/webpack-mpa)
-[![npm](https://img.shields.io/npm/dt/webpack-mpa.svg)](https://www.npmjs.com/package/webpack-mpa)
-[![npm](https://img.shields.io/npm/v/webpack-mpa.svg)](https://www.npmjs.com/package/webpack-mpa)
-[![Analytics](https://ga-beacon.appspot.com/UA-83446952-1/github.com/scriptex/webpack-mpa/README.md)](https://github.com/scriptex/webpack-mpa/)
+# NPM User stats
 
-# Initial Commit
+> Statistics for a NPM user
 
-A starter template for a git repository.
-
-Use this when creating a NPM package, static website, or any other repository in a git environment
+A web component which shows various statistics for a user in the NPM database.
 
 ## Usage
 
-1. Clone this repository
-2. Modify relevant files
-3. Push to your new repository location
-4. Profit
+TODo
 
 ## Support this project
 
