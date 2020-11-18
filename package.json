@@ -4,7 +4,7 @@
 	"description": "A web component which shows various statistics for a user in the NPM database.",
 	"scripts": {
 		"build": "tsc -p .",
-		"watch": "tsc -p . -w"
+		"start": "tsc -p . -w"
 	},
 	"main": "dist/index.js",
 	"typings": "dist/index.d.ts",
