@@ -3,7 +3,7 @@ type ApiResponse = {
 	results: Array<Record<string, any>>;
 };
 
-class NPMUserStats extends HTMLElement {
+class NPMMaintainer extends HTMLElement {
 	private SIZE = 250;
 	private API_URL = 'https://api.npms.io/v2';
 	private data: ApiResponse = {
@@ -153,4 +153,4 @@ class NPMUserStats extends HTMLElement {
 	}
 }
 
-window.customElements.define('npm-user-stats', NPMUserStats);
+window.customElements.define('npm-maintainer', NPMMaintainer);
