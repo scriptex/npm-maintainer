@@ -1,4 +1,4 @@
-# NPM User stats
+# NPM Maintainer
 
 > Statistics for a NPM user
 
@@ -6,7 +6,7 @@ A web component which shows various statistics for a user in the NPM database.
 
 ## Usage
 
-TODo
+TODO
 
 ## Support this project
 
