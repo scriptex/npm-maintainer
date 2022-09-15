@@ -1,6 +1,6 @@
 type ApiResponse = {
 	total: number;
-	results: Array<Record<string, any>>;
+	results: any[];
 };
 
 class NPMMaintainer extends HTMLElement {
@@ -16,7 +16,7 @@ class NPMMaintainer extends HTMLElement {
 	private loading = true;
 
 	static get observedAttributes(): string[] {
-		return ['user'];
+		return ['user', 'error', 'loading'];
 	}
 
 	constructor() {
@@ -75,8 +75,6 @@ class NPMMaintainer extends HTMLElement {
 
 		const namesArray = new Array(Math.ceil(items.length / this.SIZE)).fill('').map(_ => copy.splice(0, this.SIZE));
 
-		console.log(namesArray);
-
 		const packagesDetails = namesArray.map(items => {
 			return this.fetch(`/package/mget`, {
 				method: 'POST',
@@ -114,42 +112,50 @@ class NPMMaintainer extends HTMLElement {
 		shadowRoot.innerHTML = '';
 
 		this.template.innerHTML = this.loading
-			? 'Fetching data...'
+			? `<div part="loading">${this.getAttribute('loading') || 'Loading data...'}</div>`
 			: this.error
-			? 'Error fetching data.'
-			: `<div>${this.renderStats()}</div>`;
+			? `<div part="error">${this.getAttribute('error') || 'Error loading data.'}</div>`
+			: `<div part="content">${this.renderStats()}</div>`;
 
 		shadowRoot.appendChild(this.template.content.cloneNode(true));
 	}
 
 	private renderStats(): string {
-		const cols = ['Name', 'Popularity', 'Downloads', 'Interest', 'Dependents'];
-		const names = this.data.results.map(({ package: { name } }) => name);
+		const data = this.data.results.map((result: any) => ({
+			name: result.package.name,
+			stars: result.collected?.github?.starsCount || 0,
+			issues: result.collected?.github?.issues?.openCount || 0,
+			version: result.collected.metadata.version,
+			downloads: result.collected.npm.downloads.reduce((result: any, item: any) => result + item.count, 0),
+			description: result.package.description
+		}));
 
-		console.log(this.data);
+		if (data.length === 0) {
+			return '';
+		}
 
 		return `
-<table>
-	<thead>
-		<tr>
-			${cols.map(name => `<th>${name}</th>`).join('\n')}
+<table part="table">
+	<thead part="thead">
+		<tr part="thead-row">
+			${this.join(Object.keys(data[0]).map(column => `<th part="th">${column}</th>`))}
 		</tr>
 	</thead>
-	<tbody>
-	${names
-		.map(
-			name => `
-		<tr>
-			<td>
-				<a href="${`https://npmjs.org/package/${name}`}" target="_blank">${name}</a>
-			</td>
-		</tr>
-	`
-		)
-		.join('\n')}
+	<tbody part="tbody">
+		${this.join(
+			// prettier-ignore
+			data.map((item: any) =>`<tr part="tbody-row">${this.join(Object.keys(item).map(key => `<td part="td">${key === 'name' ? this.renderLink(item[key]) : item[key]}</td>`))}</tr>`)
+		)}
 	</tbody>
-	</table>
-`;
+</table>`;
+	}
+
+	private renderLink(value: string): string {
+		return `<a rel="noopener noreferrer" part="link" href="${`https://npmjs.org/package/${value}`}" target="_blank">${value}</a>`;
+	}
+
+	private join(data: string[]): string {
+		return data.join('\n');
 	}
 }
 
