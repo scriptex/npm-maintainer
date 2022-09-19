@@ -7,7 +7,7 @@
 
 # NPM Maintainer
 
-> Statistics for a NPM user
+> Statistics for a NPM user. See the demo [here](https://npm-maintainer.atanas.info/)
 
 A web component which shows various statistics for a user in the NPM database.
 
