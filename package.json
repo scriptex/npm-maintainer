@@ -1,30 +1,34 @@
 {
-	"name": "npm-user-stats",
+	"name": "npm-maintainer",
 	"version": "1.0.0",
 	"description": "A web component which shows various statistics for a user in the NPM database.",
-	"scripts": {
-		"build": "tsc -p .",
-		"start": "tsc -p . -w"
-	},
-	"main": "dist/index.js",
-	"typings": "dist/index.d.ts",
 	"keywords": [
-		"NPM",
-		"Statistics",
 		"Web component",
-		"NPM User",
-		"NPM Statistics"
+		"NPM Statistics",
+		"NPM User Statistics"
 	],
-	"author": "Atanas Atanasov <scriptex.bg@gmail.com> (https://atanas.info)",
-	"repository": "https://github.com/scriptex/npm-user-stats",
+	"homepage": "https://atanas.info/projects/npm-maintainer.html",
 	"bugs": {
 		"url": "https://github.com/scriptex/npm-user-stats/issues",
 		"email": "scriptex.bg@gmail.com"
 	},
 	"license": "MIT",
+	"author": "Atanas Atanasov <hi@atanas.info> (https://atanas.info)",
+	"funding": "https://github.com/sponsors/scriptex",
+	"main": "dist/index.js",
+	"typings": "dist/index.d.ts",
+	"repository": {
+		"type": "git",
+		"url": "github:scriptex/npm-maintainer"
+	},
+	"scripts": {
+		"copy": "cp -r dist demo",
+		"build": "tsc && yarn copy",
+		"start": "tsc -w"
+	},
 	"dependencies": {},
 	"devDependencies": {
 		"tslib": "2.4.0",
-		"typescript": "4.7.4"
+		"typescript": "4.8.3"
 	}
 }

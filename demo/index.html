@@ -1,2 +1,134 @@
-<npm-maintainer user="scriptex"></npm-maintainer>
-<script src="../dist/index.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>NPM Maintainer | Demo</title>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css"
+		/>
+
+		<style type="text/css">
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: monospace;
+				font-size: 0.875rem;
+				line-height: 1.25;
+				color: #fff;
+				text-align: center;
+				margin: 0;
+				background-color: #000;
+			}
+
+			main {
+				max-width: 1280px;
+				padding: 1rem;
+				margin: auto;
+			}
+
+			p,
+			h1,
+			npm-maintainer {
+				margin: 0 0 1rem;
+			}
+
+			npm-maintainer {
+				text-align: left;
+				display: block;
+			}
+
+			npm-maintainer::part(error),
+			npm-maintainer::part(loading) {
+				text-align: center;
+				min-height: 75vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				align-content: center;
+			}
+
+			npm-maintainer::part(error) {
+				color: red;
+			}
+
+			npm-maintainer::part(content) {
+				overflow: auto;
+				-webkit-overflow-scrolling: touch;
+			}
+
+			npm-maintainer::part(table) {
+				width: 100%;
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+
+			npm-maintainer::part(th),
+			npm-maintainer::part(td) {
+				padding: 0.5rem;
+				border: 1px solid;
+			}
+
+			npm-maintainer::part(th) {
+				text-align: center;
+				text-transform: capitalize;
+				padding: 1rem;
+			}
+
+			npm-maintainer::part(link) {
+				color: inherit;
+				text-decoration: underline;
+			}
+
+			npm-maintainer::part(link):hover {
+				text-decoration: none;
+			}
+		</style>
+
+		<script
+			src="https://unpkg.com/requirejs"
+			integrity="sha384-9M3Wd+wRkBqNHxK8F7Wg3Xs1Du/JXnCXgVdJ+G6KkYBvGol8vSgEiBdd8+MTaYtk"
+			crossorigin="anonymous"
+		></script>
+
+		<script
+			src="https://unpkg.com/scriptex-socials"
+			async
+			integrity="sha384-FDS8WECJvE4bGb+arLPh3DSv0mrVHD+hJRf+UaM6rVMT+wBleSgUlog90rrtgHH1"
+			crossorigin="anonymous"
+		></script>
+	</head>
+
+	<body>
+		<main>
+			<a
+				href="https://github.com/scriptex/npm-maintainer"
+				title="See code on Github"
+				class="github-fork-ribbon"
+				data-ribbon="See code on Github"
+			>
+				See code on Github
+			</a>
+
+			<h1>NPM Maintainer</h1>
+
+			<p>A native Web Component which shows NPM user statistics.</p>
+
+			<npm-maintainer
+				user="scriptex"
+				error="An unknown error occurred. Please try again later"
+				loading="Loading data from NPM..."
+			></npm-maintainer>
+
+			<social-links></social-links>
+		</main>
+
+		<script src="./dist/index.js"></script>
+	</body>
+</html>
