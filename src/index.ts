@@ -264,7 +264,7 @@ class NPMMaintainer extends HTMLElement {
 				downloads: result.collected?.npm?.downloads?.reduce((result: number, item: Commit) => result + item.count, 0) || 0,
 				description: result.package.description
 			}))
-			.sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0));
+			.sort((a, b) => a.name.localeCompare(b.name));
 
 		if (data.length === 0) {
 			return '';
@@ -296,7 +296,9 @@ class NPMMaintainer extends HTMLElement {
 	};
 
 	private renderLink(value: string | number): string {
-		return `<a rel="noopener noreferrer" part="link" href="${`https://npmjs.org/package/${value}`}" target="_blank">${value}</a>`;
+		const url = `https://npmjs.org/package/${value}`;
+
+		return `<a rel="noopener noreferrer" part="link" href="${url}" target="_blank">${value}</a>`;
 	}
 
 	private join(data: string[]): string {
