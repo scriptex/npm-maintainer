@@ -1,13 +1,13 @@
 {
 	"name": "npm-maintainer",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "A web component which shows various statistics for a user in the NPM database.",
 	"keywords": [
 		"Web component",
 		"NPM Statistics",
 		"NPM User Statistics"
 	],
-	"homepage": "https://atanas.info/projects/npm-maintainer.html",
+	"homepage": "https://npm-maintainer.atanas.info",
 	"bugs": {
 		"url": "https://github.com/scriptex/npm-user-stats/issues",
 		"email": "scriptex.bg@gmail.com"
